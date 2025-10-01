@@ -16,9 +16,19 @@ namespace WebApi.Controllers
             return ControllerContext.Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        public HttpResponseMessage DoesNotExist()
+        public HttpResponseMessage DoesNotExist(string message)
         {
-            return ControllerContext.Request.CreateResponse(HttpStatusCode.NotFound);
+            return ControllerContext.Request.CreateResponse(HttpStatusCode.NotFound, message);
+        }
+
+        public HttpResponseMessage AlreadyExists(string message)
+        {
+            return ControllerContext.Request.CreateResponse(HttpStatusCode.Conflict, message);
+        }
+
+        public HttpResponseMessage TaskSuccess(string message)
+        {
+            return ControllerContext.Request.CreateResponse(HttpStatusCode.OK, message);
         }
     }
 }

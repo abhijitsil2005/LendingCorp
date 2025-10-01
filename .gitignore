@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SampleProject/BusinessEntities/bin/Debug/netstandard2.0
+/SampleProject/.vs/SampleProject
+/SampleProject/BusinessEntities/obj
+/SampleProject/Common/bin/Debug/netstandard2.0
+/SampleProject/Common/obj
+/SampleProject/Core/bin/Debug/netstandard2.0
+/SampleProject/Core/obj
+/SampleProject/Data/bin/Debug/netstandard2.0
+/SampleProject/Data/obj
+/SampleProject/packages
+/SampleProject/WebApi/bin
+/SampleProject/WebApi/obj/Debug
