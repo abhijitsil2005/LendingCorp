@@ -1,7 +1,5 @@
 ﻿using BusinessEntities;
 using Common;
-using Core.Factories;
-using Data.Indexes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,8 +62,6 @@ namespace Core.Services.Products
                             ? (p.Price <= maxPrice)
                             : (minPrice == 0 && maxPrice == 0)
                 )
-                //(minPrice == null || p.Price >= minPrice)
-                //(maxPrice == null || p.Price <= maxPrice)
             );
         }
     }

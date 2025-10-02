@@ -6,7 +6,7 @@ namespace BusinessEntities
 {
     public class Product
     {
-        public int _id;
+        private int _id;
         private string _name; 
         private string _description; 
         private decimal _price;

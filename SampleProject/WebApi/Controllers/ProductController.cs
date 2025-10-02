@@ -3,6 +3,7 @@ using Core.Services.Products;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
+using WebApi.Models.Orders;
 using WebApi.Models.Products;
 
 namespace WebApi.Controllers
@@ -91,6 +92,20 @@ namespace WebApi.Controllers
                                        .Select(q => new ProductData(q))
                                        .ToList();
             return Found(products);
+        }
+
+        [Route("listAll")]
+        [HttpGet]
+        public HttpResponseMessage GetAllProducts()
+        {
+            var products = _productService.GetAll();
+            if (products == null || !products.Any())
+            {
+                string message = "No Product found.";
+                return DoesNotExist(message);
+            }
+            var productDataList = products.Select(o => new ProductData(o)).ToList();
+            return Found(productDataList);
         }
 
         public Product MapProductModel(ProductModel proModel)

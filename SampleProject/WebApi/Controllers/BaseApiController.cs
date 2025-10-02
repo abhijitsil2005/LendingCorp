@@ -30,5 +30,10 @@ namespace WebApi.Controllers
         {
             return ControllerContext.Request.CreateResponse(HttpStatusCode.OK, message);
         }
+
+        public HttpResponseMessage BadUpdateRequest(string message)
+        {
+            return ControllerContext.Request.CreateResponse(HttpStatusCode.BadRequest, message);
+        }
     }
 }
