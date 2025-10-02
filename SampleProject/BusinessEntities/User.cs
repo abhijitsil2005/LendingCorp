@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Common.Extensions;
 
 namespace BusinessEntities
@@ -62,7 +63,7 @@ namespace BusinessEntities
         {
             if (string.IsNullOrEmpty(email))
             {
-                throw new ArgumentNullException("Name was not provided.");
+                throw new ArgumentNullException("Email was not provided.");
             }
             _email = email;
         }
@@ -74,16 +75,25 @@ namespace BusinessEntities
 
         public void SetAge(int age)
         {
-            _email = _name;
+            _age = age;
         }
 
         public void SetMonthlySalary(decimal? monthlySalary)
         {
+            if (monthlySalary == null)
+            {
+                throw new ArgumentNullException("Salary cannot be null.");
+            }
             _monthlySalary = monthlySalary;
         }
 
         public void SetTags(IEnumerable<string> tags)
         {
+            // Tags should be stored in uppercase
+            if (tags != null)
+            {
+                tags = tags.ToList<string>().Select(t => t.ToUpper());
+            }
             _tags.Initialize(tags);
         }
     }
