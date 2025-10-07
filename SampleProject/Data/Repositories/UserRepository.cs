@@ -52,6 +52,18 @@ namespace Data.Repositories
             return query.ToList();
         }
 
+        public IEnumerable<User> Get(string tag)
+        {
+            var query = _documentSession.Advanced.DocumentQuery<User, UsersListIndex>();
+
+            if (tag != null)
+            {
+                query = query.WhereIn("Tags", new[] { tag.ToUpper() });
+            }
+
+            return query.ToList();
+        }
+
         public void DeleteAll()
         {
             base.DeleteAll<UsersListIndex>();
